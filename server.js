@@ -4,8 +4,14 @@ import dnsPacket from "dns-packet";
 const server = dgram.createSocket("udp4");
 
 const db = {
-	"dhruv.dev": "1.2.3.4",
-	"github.dhruv.dev": "234.432.22.34",
+	"dhruv.dev": {
+        type: 'A',
+        data: '1.2.3.4'
+    },
+	"github.dhruv.dev":{
+        type: 'CNAME',
+        data: 'hashnode.network'
+    },
 };
 
 server.on("message", (msg, rinfo) => {
